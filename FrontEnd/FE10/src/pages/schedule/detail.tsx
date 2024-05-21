@@ -49,7 +49,6 @@ function ScheduleDetail() {
         return 'Tối'
     }
   }
-
   const formatCurrency = (value: number) => {
     return value.toLocaleString('vi', { style: 'currency', currency: 'VND' })
   }

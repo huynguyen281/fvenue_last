@@ -175,6 +175,7 @@ export default function Popupmenu({ venueId, venueName }: { venueId: string; ven
                       onSelection={(value) => {
                         fetchTicketData(value)
                       }}
+                      disabled={false}
                     ></SelectBox>
                   </div>
                   <div>

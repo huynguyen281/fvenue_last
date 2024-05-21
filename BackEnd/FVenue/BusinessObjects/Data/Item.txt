@@ -1,0 +1,5 @@
+﻿1, 0, Ủng hộ, Ủng hộ cho việc duy trì và phát triển dự án FVenue, 0, 1
+2, 0, Nâng cấp, Nâng cấp tài khoản người dùng lên quản lý địa điểm, 0, 1
+3, 439, Vé buffet 1 người, Vé cho 1 người lớn, 250, 0.01
+4, 440, Vé 1 người, Vé cho 1 người lớn, 300, 0.015
+5, 441, Vé 1 người, Vé cho 1 người lớn, 900, 0.005

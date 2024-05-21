@@ -1,0 +1,56 @@
+1, Bình Hiên, 1
+2, Bình Thuận, 1
+3, Hải Châu 1, 1
+4, Hải Châu 2, 1
+5, Hòa Cường Bắc, 1
+6, Hòa Cường Nam, 1
+7, Hòa Thuận Đông, 1
+8, Hòa Thuận Tây, 1
+9, Nam Dương, 1
+10, Phước Ninh, 1
+11, Thạch Thang, 1
+12, Thanh Bình, 1
+13, Thuận Phước, 1
+14, Hòa An, 2
+15, Hòa Phát, 2
+16, Hòa Thọ Đông, 2
+17, Hòa Thọ Tây, 2
+18, Hòa Xuân, 2
+19, Khuê Trung, 2
+20, Hòa Hiệp Bắc, 3
+21, Hòa Hiệp Nam, 3
+22, Hòa Khánh Bắc, 3
+23, Hòa Khánh Nam, 3
+24, Hòa Minh, 3
+25, An Khê, 4
+26, Hòa Khê, 4
+27, Thanh Khê Đông, 4
+28, Thanh Khê Tây, 4
+29, Xuân Hà, 4
+30, Tam Thuận, 4
+31, Tân Chính, 4
+32, Chính Gián, 4
+33, Thạc Gián , 4
+34, Vĩnh Trung, 4
+35, An Hải Bắc, 5
+36, An Hải Đông, 5
+37, An Hải Tây, 5
+38, Mân Thái, 5
+39, Nại Hiên Đông, 5
+40, Phước Mỹ, 5
+41, Thọ Quang, 5
+42, Hòa Hải, 6
+43, Hòa Quý, 6
+44, Khuê Mỹ, 6
+45, Mỹ An, 6
+46, Hòa Bắc, 7
+47, Hòa Châu, 7
+48, Hòa Khương, 7
+49, Hòa Liên, 7
+50, Hòa Nhơn, 7
+51, Hòa Ninh, 7
+52, Hòa Phong, 7
+53, Hòa Phú, 7
+54, Hòa Phước, 7
+55, Hòa Sơn , 7
+56, Hòa Tiến, 7

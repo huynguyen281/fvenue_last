@@ -1,0 +1,15 @@
+﻿1, Đỉnh Bàn Cờ, https://lh5.googleusercontent.com/p/AF1QipNTJk8DvgrCr2RyeTfKzedNpx4o4LOO06rSXSVQ=w408-h272-k-no, , 41, 16.12006810922852, 108.27585999296329, 0:00, 23:59, 0, 0, true, 1, 1
+2, Cầu Rồng, https://static.vinwonders.com/2022/04/cau-rong-da-nang-1-1.jpg, Nguyễn Văn Linh, 10, 16.061130054455443, 108.22750082987488, 0:00, 23:59, 0, 0, true, 1, 1
+3, Cầu Sông Hàn, https://lh5.googleusercontent.com/p/AF1QipPR0yFg71ydHaR3xXbbMApGnySOSmF5IBCXeWmc=w408-h306-k-no, Lê Duẩn, 3, 16.072128054441794, 108.22682551033927, 0:00, 23:59, 0, 0, true, 1, 1 
+4, Cầu Nguyễn Văn Trỗi, https://lh5.googleusercontent.com/p/AF1QipNTJk8DvgrCr2RyeTfKzedNpx4o4LOO06rSXSVQ=w408-h272-k-no, Nguyễn Văn Thoại, 37, 16.05037846790102, 108.22990701449545, 0:00, 23:59, 0, 0, true, 1, 1 
+5, Trung tâm hành chính Đà Nẵng, https://lh5.googleusercontent.com/p/AF1QipM_pu7lvG_8EUtoN-4cUJP8r0sW0BWH_aT5rH_-=w408-h306-k-no, 24 Trần Phú, 11, 16.077168104604464, 108.2227168065237, 7:30, 17:00, 0, 0, true, 1, 1
+6, Chợ đêm Sơn Trà, https://lh5.googleusercontent.com/p/AF1QipOy3zJV9uGKBOAvqq7JfD47k-pJ3pJdX08AsFqt=w493-h240-k-no, Mai Hắc Đế, 37, 16.06160809465976, 108.23198549515325, 18:00, 0:00, 0, 0, true, 1, 1
+7, Tượng Cá Chép hóa Rồng, https://lh3.googleusercontent.com/p/AF1QipOsja5mY4FutBBksUpPGk7xtTfT2LONbebEZsIY=s1360-w1360-h1020, Trần Hưng Đạo, 37, 16.062920294590672, 108.22980426631761, 0:00, 23:59, 0, 0, true, 1, 1
+8, Biển Mỹ Khê, https://lh5.googleusercontent.com/p/AF1QipPgpkvaWeKD9pejm2Org-oEx-SWXLyGH_qSUneu=w426-h240-k-no, Võ Nguyên Giáp, 42, 16.056573294924814, 108.24740580864619, 0:00, 23:59, 0, 0, true, 1, 1
+9, Công viên 29/3, https://lh5.googleusercontent.com/p/AF1QipNPIejeI79llYfMNFnAdGnaBKNCt6G4Fwo6Q2tM=w426-h240-k-no, 23 Nguyễn Tri Phương, 33, 16.062539204596465, 108.20449283748195, 0:00, 23:59, 0, 0, true, 1, 1
+10, Bãi tắm Phạm Văn Đồng, https://lh5.googleusercontent.com/p/AF1QipMeJRsg8S_9w2m3KaBuovV_87uF5IsM8eubr1vY=w408-h272-k-no, Võ Nguyên Giáp, 37, 16.07338349250206, 108.24686918822724, 0:00, 23:59, 0, 0, true, 1, 1 
+11, Bãi đá Obama, https://lh5.googleusercontent.com/p/AF1QipNZY0gLKkyBp6SeM7KEMPadCos2lOCHNwWhAIvI=w408-h354-k-no, Hoàng Sa, 41, 16.09907315146986, 108.30079228465745, 0:00, 23:59, 0, 0, true, 1, 1
+12, Bãi đá đen, https://mia.vn/media/uploads/blog-du-lich/kham-pha-bai-da-den-da-nang-thien-duong-cam-trai-cho-gioi-tre-05-1637027778.jpg, , 41, 16.147496875134987, 108.23380422365707, 0:00, 23:59, 0, 0, true, 1, 1
+13, Chợ đêm Helio, https://lh5.googleusercontent.com/p/AF1QipOT5qP5cG4MJAC6pFlFwbNhpTJRFBKDZi16uD79=w408-h306-k-no, 2 Tháng 9, 5, 16.03721275076136, 108.22449212398838, 17:00, 22:30, 0, 0, true, 1, 1
+14, Bãi Rêu Nam Ô, https://lh5.googleusercontent.com/p/AF1QipPLWohOtxqRtG8sPz8yFNmPk7UA_QovxpBtwifr=w408-h305-k-no, , 21, 16.117981036882956, 108.13000619993463, 0:00, 23:59, 0, 0, true, 1, 1
+15, Chùa Linh Ứng Sơn Trà, https://lh5.googleusercontent.com/p/AF1QipPwA94YPb8B3dqMEsi1KG86ik-uT1JXEqoiqQu_=w408-h544-k-no, Hoàng Sa, 41, 16.10025543057907, 108.27775315950969, 7:00, 19:00, 0, 0, true, 1, 1

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice</title>
+</head>
+<body style="background-color: #E9ECEF;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td align="center" bgcolor="#E9ECEF">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td align="left" bgcolor="#FFFFFF" style="padding: 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #D4DADF;">
+                            <h1 style="margin: 0; text-align: center; font-size: 32px; font-weight: 700; color: #28A128; letter-spacing: -1px; line-height: 48px;">
+                                Thanh Toán Thành Công!
+                            </h1>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#E9ECEF">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td align="left" bgcolor="#FFFFFF" style="padding: 0 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+                            <h1 style="margin: 0; text-align: center;">
+                                <img src="http://drive.google.com/uc?export=view&id=1s_C1fC3Bcl8SCbu6q3PO75N0gS5SVkBo" style="width: 70px;" />
+                            </h1>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#E9ECEF">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td align="left" bgcolor="#FFFFFF" style="padding: 24px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;">
+                            <p style="margin: 0; text-align: center; font-size: 16px; line-height: 24px;">
+                                Đơn hàng thanh toán thành công, vui lòng xuất trình hóa đơn khi đến địa điểm.
+                                Cảm ơn quý khách đã sử dụng dịch vụ của FVenue.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#E9ECEF">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td bgcolor="#FFFFFF" style="padding: 24px 54px 0; font-family: 'Source Sans Pro' , Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                            <div style="margin: 0; clear: both;">
+                                <div style="margin: 5px 0; width: 40%; float: left;">Địa điểm</div>
+                                <div style="margin: 5px 0; text-align: end; width: 60%; float: right;">{{VENUE_NAME}}</div>
+                            </div>
+                            <div style="margin: 0; clear: both; ">
+                                <div style="margin: 5px 0; width: 40%; float: left; ">Địa chỉ</div>
+                                <div style="margin: 5px 0; text-align: end; width: 60%; float: right;">{{LOCATION}}</div>
+                            </div>
+                            <div style="margin: 0; clear: both; ">
+                                <div style="margin: 5px 0; width: 40%; float: left;">Mã dịch vụ</div>
+                                <div style="margin: 5px 0; text-align: end; width: 60%; float: right;">{{ITEM_ID}}</div>
+                            </div>
+                            <div style="margin: 0; clear: both; ">
+                                <div style="margin: 5px 0; width: 40%; float: left;">Số lượng</div>
+                                <div style="margin: 5px 0; text-align: end; width: 60%; float: right;">{{QUANTITY}}</div>
+                            </div>
+                            <div style="margin: 0; clear: both; ">
+                                <div style="margin: 15px 0; width: 40%; float: left;"><strong>Tổng tiền</strong></div>
+                                <div style="margin: 15px 0; text-align: end; width: 60%; float: right;"><strong>{{AMOUNT}}</strong></div>
+                            </div>
+                            <div style="margin: 0; clear: both; ">
+                                <div style="margin: 5px 0; width: 40%; float: left;">Mã giao dịch</div>
+                                <div style="margin: 5px 0; text-align: end; width: 60%; float: right;">{{PAYMENT_ID}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" bgcolor="#E9ECEF">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td align="left" bgcolor="#FFFFFF" style="padding: 24px 24px 36px; font-family: 'Source Sans Pro' , Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
+                            <div>
+                                <div style="margin: 0; text-align: center; width: 50%; float: left;"><img src="{{QR_CODE}}" /></div>
+                                <p style="margin: 15px 0 0 0; text-align: center; width: 40%; float: left;">Thân ái,<br> FVenue</p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

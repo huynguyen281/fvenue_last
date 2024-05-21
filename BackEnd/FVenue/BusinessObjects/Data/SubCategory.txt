@@ -1,0 +1,100 @@
+﻿1, Địa điểm công cộng, 1
+2, Bún đậu mắm tôm, 2
+3, Karaoke, 4
+4, Nước mía, 3
+5, Bánh canh ruộng, 2
+6, Bar, 4
+7, Rạp phim, 1
+8, Bảo tàng, 1
+9, Ốc, 2
+10, Gelato, 3
+11, Bingsu, 3
+12, Sinh tố, 3
+13, Chè, 3
+14, Súp, 2
+15, Trà sữa, 3
+16, Bida, 1
+17, Bún chả cá, 2
+18, Quán net, 1
+19, Ẩm thực Thái Lan, 2
+20, Bánh Huế, 2
+21, Spa, 1
+22, Kem bơ, 3
+23, Cơm gà, 2
+24, Pizza, 2
+25, Bánh tráng nướng, 2
+26, Thức uống detox, 3
+27, Đồ chay, 2
+28, Bún bò, 2
+29, Hải sản tươi sống, 2
+30, Nước ép trái cây, 3
+31, Chân gà nướng, 2
+32, Bánh xèo, 2
+33, Bánh ướt lòng gà, 2
+34, Bánh canh Nam Phổ, 2
+35, Cơm hến, 2
+36, Bún thái, 2
+37, Mì quảng, 2
+38, Cao lầu, 2
+39, Bánh cuốn, 2
+40, Bánh canh cua, 2
+41, Bánh mì chảo, 2
+42, Bún tôm Hải Phòng, 2
+43, Bún cá chấm, 2
+44, Bún chả Hà Nội, 2
+45, Bánh tôm Hồ Tây, 2
+46, Bánh đa cua, 2
+47, Phở, 2
+48, Xôi, 2
+49, Bún măng vịt, 2
+50, Cháo gà, 2
+51, Cháo vịt, 2
+52, Nước dừa, 3
+53, Bánh tráng trộn, 2
+54, Bánh tráng bơ, 2
+55, Lẩu cá, 2
+56, Cá đuối nướng, 2
+57, Thịt xiên nướng, 2
+58, Cá viên chiên, 2
+59, Freezer, 3
+60, Đồ uống nóng, 3
+61, Đồ ăn healthy, 2
+62, Bánh bò, 2
+63, Nem chua rán, 2
+64, Lẩu bò, 2
+65, Phá lấu, 2
+66, Trà chanh giã tay, 3
+67, Bún ốc, 2
+68, Bún riêu cua, 2
+69, Hủ tiếu, 2
+70, Sữa chua, 3
+71, Kem ký, 3
+72, Tàu hũ, 3
+73, Chuối nếp nướng, 2
+74, Cơm tấm, 2
+75, Sữa đậu nành, 3
+76, Cafe, 3
+77, Cơm nhà, 2
+78, Bia, 3
+79, Trà, 3
+80, Bánh, 2
+81, Bánh mì, 2
+82, Mì xào, 2
+83, Cơm chiên dương châu, 2
+84, Đồ nướng, 2
+85, Bánh tráng thịt heo, 2
+86, Gỏi cá, 2
+87, Bún thịt nướng, 2
+88, Bún mắm, 2
+89, Ẩm thực Hàn Quốc, 2
+90, Gà chiên, 2
+91, Mì cay, 2
+92, Mì ý, 2
+93, Khoai tây chiên, 2
+94, Kem tươi, 3
+95, Lẩu, 2
+96, Ẩm thực Pháp, 2
+97, Đồ ăn thực dưỡng, 2
+98, Đồ ăn fusion, 2
+99, Fine dining, 2
+100, Khu vui chơi, 1

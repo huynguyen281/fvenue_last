@@ -1,0 +1,45 @@
+﻿1, 1, 1, 5, Từ trên cao nhìn xuống ngắm cả thành phố Đà Nẵng rất đẹp
+2, 2, 1, 5, Phong cảnh đẹp
+3, 3, 1, 4, Thật sự là đường khá dốc hơi khó đi nhưng cảnh rất đẹp
+4, 1, 2, 5, Cầu Rồng phun nước đẹp
+5, 2, 2, 5, Cầu Rồng có kiến trúc độc đáo rất đẹp
+6, 3, 2, 4, Đẹp nhưng khi phun nước hơi đông đúc
+7, 1, 3, 5, Cầu đẹp thường quay lúc 11h đêm
+8, 2, 3, 3, Mình là khách du lịch thấy cầu đẹp nhưng tiếc là 12h tắt đèn hết tất cả các cầu nên hơi bùn xíu
+9, 4, 3, 5, Tuyệt đẹp là nơi lý tưởng để tham quan du lịch hay hẹn hò cùng người yêu
+10, 1, 4, 5, View đẹp để đi dạo vào ban đêm
+11, 2, 4, 5, Nơi để check in và chụp ảnh đẹp
+12, 3, 4, 5, Nơi để đi bộ tập thể dục buổi sáng tốt
+13, 1, 5, 5, Một biểu tượng trong lòng thành phố và rất  đẹp 
+14, 2, 5, 4, Rộng rãi và có bãi giữ xe miễn phí giúp dân thuận tiện nhưng chưa có mái che
+15, 4, 5, 5, Trung tâm hành chính thành phố Đà Nẵng ngày sát bờ sông Hàn có vị trí check in đẹp
+16, 1, 6, 1, Mình ghé chợ đêm tầm 10h tối và thấy đồ ăn ở đây dở và mắc
+17, 2, 6, 3, Đông đúc và giá cả hơi đắt đỏ so với chất lượng.
+18, 4, 6, 1, Mình đã có trãi nghiệm cực kì tệ ở các món nướng và bún
+19, 1, 7, 5, Điểm đến du lịch đặc sắc cho khách du lịch đến thăm Đà Nẵng
+20, 2, 7, 5, Một trong những địa điểm checkin của du khách khi tới Đà Nẵng
+21, 3, 7, 5, Cá chép hoá rồng là nơi đi dạo lí tưởng
+22, 1, 8, 5, Đây là địa điểm du lịch ai cũng nên đến ít nhất 1 lần trong đời
+23, 2, 8, 5, Biển Mỹ Khê có nhiều hoạt động ngoài trời hay
+24, 3, 8, 5, Du lịch biển Mỹ Khê vô cùng phát triển và có đội ngũ nhân viên bảo hộ để đảm bảo an toàn cho người tắm
+25, 1, 9, 2, Công viên xuống cấp và nhiều khu vui chơi đóng cửa
+26, 2, 9, 2, Khu sở thú ô nhiễm và nhếch nhác cũng như thiếu nhiều tiện ích 
+27, 3, 9, 4, Địa điểm đi dạo thể dục buổi sáng ổn nhưng hơi xuống cấp
+28, 1, 10, 5, Một bức tranh sống động làm say mê lòng người
+29, 2, 10, 5, Biển đẹp và là nơi chụp ảnh check in lí tưởng
+30, 3, 10, 5, Nơi thư giản tốt và có nhiều quán ăn ngon giá tốt gần đó
+31, 1, 11, 5, Khung cảnh thiên nhiên hùng vĩ và bãi biển trong vắt có thể nhìn xuống dưới đáy
+32, 2, 11, 5, Có rất nhiều dịch vụ du lịch mở ra để phục vụ nhu cầu của khách du lịch
+33, 3, 11, 5, Là nơi hợp lí để trải nghiệm ngắm san hô
+34, 1, 12, 5, Thiên đường nghỉ dưỡng sau những ngày bận rộn
+35, 2, 12, 5, Có rất nhiều tảng đá đen với nhiều hình dạng và kích cỡ khác nhau được xếp xen kẽ và ngẫu nhiên tạo nên một khung cảnh tuyệt đẹp
+36, 4, 12, 4, Nơi để tắm biển thỏa thích nhưng cần cẩn thận vì hàu thường treo trên đá nhưng nếu lỡ va phải thì rất dễ bị đứt tay 
+37, 1, 13, 5, Chợ đêm đẹp và đồ ăn đa dạng với giá hợp lí
+38, 2, 13, 5, Có nhiều nghệ sỹ đường phố thể hiện hết mình và nhiều đồ ăn ngon
+39, 3, 13, 5, Gian hàng đồ ăn sinh động và nơi hợp lí để đi dạo đêm 
+40, 1, 14, 5, Thiên đường được tạo nên từ đá
+41, 2, 14, 5, Đây là một trong những địa điểm hiếm hoi tại Đà Nẵng vẫn chưa được khai thác quá nhiều về du lịch nên vẫn giữ được vẻ đẹp hoang sơ
+42, 3, 14, 5, Góc nào tại đây cũng xịn như tại studio nên chụp ảnh rất đẹp
+43, 1, 15, 5, Đây là ngôi chùa sở hữu khung cảnh thiên nhiên tuyệt đẹp bậc nhất mà bạn không nên bỏ lỡ khi du lịch Đà Nẵng
+44, 2, 15, 5, Chùa đẹp và cảnh nhìn ra Biển
+45, 3, 15, 5, Điểm nhấn phong cảnh nơi đây là view nhìn ra biển và tp đà nẵng

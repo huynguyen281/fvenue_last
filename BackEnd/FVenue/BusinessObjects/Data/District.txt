@@ -1,0 +1,7 @@
+1, Hải Châu, 1
+2, Cẩm Lệ, 1
+3, Liên Chiểu, 1
+4, Thanh Khê, 1
+5, Sơn Trà, 1
+6, Ngũ Hành Sơn, 1
+7, Hòa Vang, 1

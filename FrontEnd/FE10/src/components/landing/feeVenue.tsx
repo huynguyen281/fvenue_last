@@ -26,7 +26,7 @@ function FeeVenue() {
     setLoading(true)
     axiosClient
       .get<DataResponse<DataPaging<IVenue>>>(
-        `VenuesAPI/GetPublicVenueDTOs/${venueData?.PageIndex + 1}/${venueData?.PageSize}`,
+        `VenuesAPI/GetNonPublicVenueDTOs/${venueData?.PageIndex + 1}/${venueData?.PageSize}`,
       )
       .then((response) => {
         if (response.status === 200 && response.data.Data) {

@@ -14,7 +14,7 @@ import { Input } from 'src/components/ui/input'
 export function CreateVenue() {
   const [formData, setFormData] = useState({
     name: '',
-    image: null,
+    image: '',
     imageURL: '',
     address: '',
     district: '',
@@ -38,7 +38,7 @@ export function CreateVenue() {
       const imageURL = URL.createObjectURL(file)
       setFormData({
         ...formData,
-        image: file,
+        image: file.name,
         imageURL: imageURL,
       })
     }

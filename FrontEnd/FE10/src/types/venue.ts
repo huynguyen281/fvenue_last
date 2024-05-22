@@ -48,6 +48,7 @@ export interface IReviewResponseInsert {
   Content?: string
   CreateDate?: string
   LastUpdateDate?: string
+  Avatar?: string
 }
 export interface IReviewGetAll {
   Id?: string

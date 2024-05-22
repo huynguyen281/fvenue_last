@@ -161,7 +161,7 @@ function RegisterForm() {
             </FormItem>
           )}
         />
-        <FormField
+        {/* <FormField
           control={form.control}
           name="Avatar"
           render={({ field }) => (
@@ -174,7 +174,7 @@ function RegisterForm() {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
 
         <Button disabled={isLoading} type="submit" className="w-full bg-blue-700">
           {isLoading && <IconReload className="mr-2 h-5 w-5 animate-spin" />}

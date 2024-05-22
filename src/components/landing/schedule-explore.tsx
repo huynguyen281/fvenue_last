@@ -11,12 +11,12 @@ function ScheduleExplore() {
             <img className="w-full object-contain" src="/images/landing-page.png"></img>
           </div>
           <div className="flex h-full flex-col justify-center gap-12">
-            <div className="text-5xl font-bold text-gray-900/90">Khám phá ngay lịch trình thông minh</div>
+            <p className="text-5xl font-bold text-gray-900/90">Khám phá ngay lịch trình thông minh</p>
             <div className="text-justify text-lg font-semibold text-gray-900/70">
-              Elevate your photography to new heights with Pixor's AI Image Generator. Create captivating visual stories
-              by providing prompts and witness the generator intricately weaving details with diverse styles, adding
-              uniqueness to your images. Transform ordinary snapshots into extraordinary works of art with just a few
-              clicks.
+              Đà Nẵng - thành phố đáng sống đang đợi bạn, có quá nhiều thứ để khám phá và trải nghiệm ở thành phố tươi
+              đẹp này. Hãy để <b className="text-blue-700">FVENUE</b> chúng tôi giúp bạn có lịch trình đi đến những địa
+              điểm hot và độc đáo nhất theo sở thích của bạn. Click ngay bên dưới để{' '}
+              <b className="text-blue-700">FVENUE</b> có thể giúp bạn có những giây phút trọn vẹn nhất tại đây.
             </div>
             <div className="group w-2/3 cursor-pointer rounded-full bg-gray-100">
               <div

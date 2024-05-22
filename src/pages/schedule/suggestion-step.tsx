@@ -10,9 +10,8 @@ import { SelectBox } from 'src/components/select-box'
 const steps = ['Chọn thời gian', 'Chọn sở thích', 'Chọn giá', 'Kết quả']
 
 function SuggestionStep() {
-  const [activeStep, setActiveStep] = React.useState(0)
+  const [activeStep, setActiveStep] = React.useState(1)
   const [timeData] = React.useState<Array<SelectData>>([
-    { name: 'Tất cả', value: 0 },
     { name: 'Sáng', value: 1 },
     { name: 'Chiều', value: 2 },
     { name: 'Tối', value: 3 },
@@ -46,7 +45,7 @@ function SuggestionStep() {
             <React.Fragment>
               <div className="px-4 pt-8">
                 <div className="pb-3 text-xl font-semibold">{steps[activeStep]}</div>
-                <div className="py-3 space-y-6">
+                <div className="space-y-6 py-3">
                   <div>
                     <SelectBox
                       label="Buổi"

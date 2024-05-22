@@ -5,9 +5,10 @@ import { Rating } from '@smastrom/react-rating'
 import { IReviewResponseInsert, IVenue } from 'src/types/venue'
 import { useParams } from 'react-router-dom'
 import { getVenueId } from 'src/api/venue/getById'
-import Popupmenu from 'src/components/Itemmenu/pop-up-menu'
 import Header from 'src/components/header'
 import Footer from 'src/components/footer'
+import { AttachMoney, FmdGood, AccessTime, AccessAlarms } from '@mui/icons-material'
+import Popupmenu from 'src/components/Itemmenu/pop-up-menu'
 
 // Giả mạo dữ liệu đánh giá
 const fakeReviews: IReviewResponseInsert[] = [
@@ -38,31 +39,11 @@ const fakeReviews: IReviewResponseInsert[] = [
     Content: 'A great place to visit!',
     Avatar: 'https://tse2.mm.bing.net/th?id=OIP.37Skua12Yb3icbJxRLAgAgHaHY&pid=Api&P=0&h=220',
   },
-  // {
-  //   _id: '2',
-  //   user_id: {
-  //     _id: '2',
-  //     fullName: 'Jane Smith',
-  //     email: 'jane@gmail.com',
-  //     avatar: 'https://tse2.mm.bing.net/th?id=OIP.37Skua12Yb3icbJxRLAgAgHaHY&pid=Api&P=0&h=220',
-  //   },
-  //   rating: '5🌟',
-  //   updatedAt: '2024-02-25T08:00:00Z',
-  //   details: 'Highly recommended!',
-  // },
-  // {
-  //   _id: '3',
-  //   user_id: {
-  //     _id: '2',
-  //     fullName: 'john snow',
-  //     email: 'john@gmail.com',
-  //     avatar: 'https://tse2.mm.bing.net/th?id=OIP.37Skua12Yb3icbJxRLAgAgHaHY&pid=Api&P=0&h=220',
-  //   },
-  //   rating: '5🌟',
-  //   updatedAt: '2024-02-25T08:00:00Z',
-  //   details: 'Good!',
-  // },
 ]
+
+const formatCurrency = (value: number) => {
+  return value.toLocaleString('vi', { style: 'currency', currency: 'VND' })
+}
 
 function VenueDetailPage() {
   const { id } = useParams<{ id?: string }>()
@@ -85,8 +66,6 @@ function VenueDetailPage() {
     }
   }, [id])
 
-  // const [reviews, setReviews] = useState<IReview[]>(fakeReviews) // Sử dụng dữ liệu giả mạo cho reviews
-
   const handleReviewSubmit = () => {
     console.log('#Submit')
   }
@@ -94,7 +73,6 @@ function VenueDetailPage() {
   const [Latitude, Longitude] = venue?.GeoLocation
     ? venue.GeoLocation.split(',').map((coord) => parseFloat(coord.trim()).toFixed(14))
     : [null, null]
-  console.log(Latitude)
 
   const [currentLocation, setCurrentLocation] = useState<any>(null) // Thêm state cho vị trí hiện tại
   useEffect(() => {
@@ -125,8 +103,6 @@ function VenueDetailPage() {
     }
     return ''
   }
-  console.log(getDirectionsURL)
-  console.log(currentLocation)
 
   return (
     <>
@@ -135,7 +111,7 @@ function VenueDetailPage() {
       </div>
 
       <div className="mx-auto min-h-screen w-full bg-gray-200">
-        <div className="mx-auto max-w-6xl bg-white px-2 sm:px-4 lg:px-6">
+        <div className="mx-auto max-w-6xl rounded-md bg-white px-2 shadow-md sm:px-4 lg:px-6">
           <div className="mx-auto max-w-2xl py-1 sm:py-2 lg:max-w-none lg:py-4">
             {venue && (
               <section className="grid w-full grid-cols-1 place-items-start gap-4 py-2 md:grid-cols-3 md:gap-6">
@@ -143,39 +119,52 @@ function VenueDetailPage() {
                   <img
                     src={venue.Image}
                     alt={venue.Name}
-                    className="h-full w-full rounded-sm object-cover shadow-md"
+                    className="h-full w-full rounded-md border border-gray-100 object-cover shadow-md"
                     style={{ aspectRatio: '1/1' }}
                   />
                 </article>
 
-                <article className="col-span-2 ml-24 space-y-8 rounded-lg">
-                  <div className="space-y-4">
+                <article className="col-span-2 space-y-6 rounded-lg">
+                  <div className="flex items-center gap-4">
                     <h3 className="text-3xl font-medium tracking-wide">{venue.Name}</h3>
-                    <div className="flex flex-row justify-between">
-                      <div className="flex flex-row">
-                        <p className="nav-link mr-4 pr-2">Giờ mở cửa: {venue.OpenTime}</p>
-                        <p className="nav-link mr-4 pr-2">Giờ đóng cửa: {venue.CloseTime}</p>
+                    {venue.LowerPrice == 0 && venue.UpperPrice == 0 ? (
+                      <span className="rounded-md bg-green-600 px-3 py-1 text-sm font-semibold text-white">
+                        Miễn phí
+                      </span>
+                    ) : (
+                      <>
+                        <div className="flex h-fit w-fit items-center justify-center rounded-md bg-amber-400 px-1 py-1 text-sm font-bold text-white">
+                          <AttachMoney fontSize="small" />
+                          <span>
+                            {formatCurrency(venue.LowerPrice)} ~ {formatCurrency(venue.UpperPrice)}{' '}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="flex h-full flex-col justify-between space-y-8">
+                    <div className="flex flex-col justify-between gap-6">
+                      <div className="flex items-center space-x-1 text-lg">
+                        <FmdGood fontSize="medium" sx={{ color: '#ef4444' }} />
+                        {venue.Street && (
+                          <span className="font-bold">
+                            {venue.Street} - {venue.Location}
+                          </span>
+                        )}
                       </div>
-                      <div>
-                        <Popupmenu venueId={venue.Id} venueName={venue.Name} />
+                      <div className="flex flex-row items-center gap-2 text-lg">
+                        <AccessTime fontSize="medium" />
+                        <p className="mr-4 pr-2">Giờ mở cửa: {venue.OpenTime}</p>
+                      </div>
+                      <div className="flex flex-row items-center gap-2 text-lg ">
+                        <AccessAlarms fontSize="medium" />
+                        <p className="mr-4 pr-2">Giờ đóng cửa: {venue.CloseTime}</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="space-y-6 px-6">
-                    <h1 className="text-xl">
-                      {venue.Street && <span className="font-bold">Đường {venue.Street}</span>}
-                    </h1>
-                    <h1 className="text-xl">
-                      <span>{venue.Location}</span>
-                    </h1>
-                  </div>
-
-                  <div className="space-y-2 px-6">
-                    <span>Giá thấp nhất: {venue.LowerPrice},000 VNĐ</span>
-                  </div>
-                  <div className="space-y-2 px-6">
-                    <span>Giá cao nhất: {venue.UpperPrice},000 VNĐ</span>
+                    <div>
+                      {localStorage.getItem('user') ? <Popupmenu venueId={venue.Id} venueName={venue.Name} /> : ''}
+                    </div>
                   </div>
                 </article>
               </section>
@@ -183,7 +172,7 @@ function VenueDetailPage() {
           </div>
         </div>
 
-        <div className="mx-auto my-2 max-w-6xl bg-white px-2 sm:my-4 sm:px-4 lg:my-6 lg:px-6">
+        <div className="mx-auto my-2 max-w-6xl rounded-md bg-white px-2 shadow-md sm:my-4 sm:px-4 lg:my-6 lg:px-6">
           {venue && venue.GeoLocation && (
             <div style={{ width: '100%', height: '100vh' }}>
               <iframe
@@ -198,7 +187,7 @@ function VenueDetailPage() {
         </div>
 
         {/* Phần hiển thị đánh giá */}
-        <div className="mx-auto my-2 max-w-6xl bg-white px-2 sm:my-4 sm:px-4 lg:my-6 lg:px-6">
+        <div className="mx-auto my-2 max-w-6xl rounded-md bg-white px-2 shadow-md sm:my-4 sm:px-4 lg:my-6 lg:px-6">
           <div className="mx-auto max-w-2xl py-1 sm:py-2 lg:max-w-none lg:py-4">
             <section key={'main.reviews'} className="w-full py-10">
               <h3 className="mb-8 text-3xl font-medium">Đánh giá</h3>

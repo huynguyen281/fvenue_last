@@ -146,11 +146,11 @@ export default function Popupmenu({ venueId, venueName }: { venueId: string; ven
   return (
     <>
       <button
-        className="mb-1 mr-1 rounded bg-blue-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-pink-600"
+        className="rounded-md bg-blue-500 px-6 py-2 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-pink-600"
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Đặt Vé
+        Đặt Vé ngay !!
       </button>
       {showModal && (
         <>

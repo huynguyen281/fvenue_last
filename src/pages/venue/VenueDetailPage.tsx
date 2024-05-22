@@ -111,20 +111,19 @@ function VenueDetailPage() {
       </div>
 
       <div className="mx-auto min-h-screen w-full bg-gray-200">
-        <div className="mx-auto max-w-6xl rounded-md bg-white px-2 shadow-md sm:px-4 lg:px-6">
+        <div className="mx-auto min-h-[342px] max-w-6xl rounded-md bg-white px-2 shadow-md sm:px-4 lg:px-6">
           <div className="mx-auto max-w-2xl py-1 sm:py-2 lg:max-w-none lg:py-4">
             {venue && (
-              <section className="grid w-full grid-cols-1 place-items-start gap-4 py-2 md:grid-cols-3 md:gap-6">
-                <article className="ml-7 flex flex-col">
+              <section className="flex w-full place-items-start gap-6 py-2">
+                <article className="max-h-[300px] max-w-[300px]">
                   <img
                     src={venue.Image}
                     alt={venue.Name}
-                    className="h-full w-full rounded-md border border-gray-100 object-cover shadow-md"
-                    style={{ aspectRatio: '1/1' }}
+                    className="aspect-square w-full rounded-md border border-gray-100 object-cover shadow-md"
                   />
                 </article>
 
-                <article className="col-span-2 space-y-6 rounded-lg">
+                <article className="flex h-[300px] grow flex-col space-y-6 rounded-lg">
                   <div className="flex items-center gap-4">
                     <h3 className="text-3xl font-medium tracking-wide">{venue.Name}</h3>
                     {venue.LowerPrice == 0 && venue.UpperPrice == 0 ? (
@@ -143,7 +142,7 @@ function VenueDetailPage() {
                     )}
                   </div>
 
-                  <div className="flex h-full flex-col justify-between space-y-8">
+                  <div className="flex grow flex-col justify-start space-y-8">
                     <div className="flex flex-col justify-between gap-6">
                       <div className="flex items-center space-x-1 text-lg">
                         <FmdGood fontSize="medium" sx={{ color: '#ef4444' }} />

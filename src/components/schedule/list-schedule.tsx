@@ -13,7 +13,7 @@ export function ListSchedule({ schedulesData }: { schedulesData: Array<Schedule>
             <div className="cursor-pointer transition-shadow duration-300 hover:shadow-lg">
               <img className="h-36 w-full rounded-t-md object-cover" src={item.ThumbnailUrl} alt="" />
               <div className="rounded-sm border border-solid py-2">
-                <div className="px-2 font-semibold text-blue-950">{item.Name}</div>
+                <div className="flex min-h-[48px] items-center px-2 font-semibold text-blue-950">{item.Name}</div>
                 <div className="my-2 h-[1px] w-full bg-blue-950/80"></div>
                 <div className="flex flex-col gap-[6px] px-2">
                   <div className="flex justify-between text-[15px]">

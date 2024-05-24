@@ -20,29 +20,29 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[27rem] w-[100%]"
-                  src={`https://res.klook.com/image/upload/fl_lossy.progressive,q_90/c_fill,,w_2560,/v1670577664/banner/rtw7fgqatgoc1vpcpamb.webp`}
+                  className="h-[30rem] w-[100%] object-cover"
+                  src={`https://th.bing.com/th/id/R.bc9c9bbf4c186267f814644a84526eea?rik=es%2bqJomACNGYUQ&pid=ImgRaw&r=0`}
                   alt={`carousel-image-${index}`}
                 />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
                   <div className="flex items-center">
-                    <div className="top-30 absolute left-20 w-full py-4  text-white">
-                      <p className="text-5xl  font-bold">Lên Lịch Trình Cùng Fvenue</p>
-                      <p className="text-xl">
+                    <div className="top-30 absolute left-20 w-full space-y-6 py-4 text-white">
+                      <p className="text-5xl font-extrabold tracking-wider">Lên Lịch Trình Cùng Fvenue</p>
+                      <p className="text-xl font-semibold">
                         Khám phá niềm vui của bạn mọi lúc, mọi nơi - từ chuyến du lịch ngẫu hứng tới những cuộc phiêu
                         lưu
                       </p>
                     </div>
-                    <div className="absolute bottom-20 left-20 flex items-center">
+                    <div className="absolute bottom-24 left-20 flex items-center">
                       <Search size={24} className="absolute left-2 text-gray-500" />
 
                       <input
                         type="text"
                         placeholder="Search..."
-                        className="rounded-2xl border border-gray-300 px-9 py-4"
+                        className="rounded-3xl border border-gray-300 px-12 py-3 focus:outline-none"
                         style={{ width: '700px' }}
                       />
-                      <button className="absolute right-4 top-2 rounded-xl bg-blue-500 px-4 py-2 text-white">
+                      <button className="absolute right-0 top-0 h-full rounded-r-3xl bg-blue-600 px-6 text-lg font-semibold text-white">
                         <Link to={'/venues'}>Khám phá</Link>
                       </button>
                     </div>
@@ -53,30 +53,30 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[27rem] w-[100%]"
-                  src={`https://img.thuthuatphanmem.vn/uploads/2018/10/03/anh-bo-bien-dep-va-tho-mong_111548093.jpg`}
+                  className="h-[30rem] w-[100%] object-cover"
+                  src={`https://d36tnp772eyphs.cloudfront.net/blogs/1/2018/08/Dragon-Bridge-in-Da-Nang-City-Vietnam.jpg`}
                   alt={`carousel-image-${index}`}
                 />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
                   <div className="flex items-center">
-                    <div className="top-30 absolute left-20 w-full py-4  text-white">
-                      <p className="text-5xl  font-bold">Lên Lịch Trình Cùng Fvenue</p>
-                      <p className="text-xl">
+                    <div className="top-30 absolute left-20 w-full space-y-6 py-4 text-white">
+                      <p className="text-5xl font-extrabold tracking-wider">Lên Lịch Trình Cùng Fvenue</p>
+                      <p className="text-xl font-semibold">
                         Khám phá niềm vui của bạn mọi lúc, mọi nơi - từ chuyến du lịch ngẫu hứng tới những cuộc phiêu
                         lưu
                       </p>
                     </div>
-                    <div className="absolute bottom-20 left-20 flex items-center">
+                    <div className="absolute bottom-24 left-20 flex items-center">
                       <Search size={24} className="absolute left-2 text-gray-500" />
 
                       <input
                         type="text"
                         placeholder="Search..."
-                        className="rounded-2xl border border-gray-300 px-9 py-4"
+                        className="rounded-3xl border border-gray-300 px-12 py-3 focus:outline-none"
                         style={{ width: '700px' }}
                       />
-                      <button className="absolute right-4 top-2 rounded-xl bg-blue-500 px-4 py-2 text-white">
-                        Khám phá
+                      <button className="absolute right-0 top-0 h-full rounded-r-3xl bg-blue-600 px-6 text-base text-lg font-semibold text-white">
+                        <Link to={'/venues'}>Khám phá</Link>
                       </button>
                     </div>
                   </div>
@@ -87,30 +87,30 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[27rem] w-[100%]"
-                  src={`https://exploreonevietnam.com/wp-content/uploads/2020/08/Cau_Vang_1__FFFA.jpg`}
+                  className="h-[30rem] w-[100%] object-cover"
+                  src={`https://res.klook.com/image/upload/fl_lossy.progressive,q_90/c_fill,,w_2560,/v1670577664/banner/rtw7fgqatgoc1vpcpamb.webp`}
                   alt={`carousel-image-${index}`}
                 />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
                   <div className="flex items-center">
-                    <div className="top-30 absolute left-20 w-full py-4  text-white">
-                      <p className="text-5xl  font-bold">Lên Lịch Trình Cùng Fvenue</p>
-                      <p className="text-xl">
+                    <div className="top-30 absolute left-20 w-full space-y-6 py-4 text-white">
+                      <p className="text-5xl font-extrabold tracking-wider">Lên Lịch Trình Cùng Fvenue</p>
+                      <p className="text-xl font-semibold">
                         Khám phá niềm vui của bạn mọi lúc, mọi nơi - từ chuyến du lịch ngẫu hứng tới những cuộc phiêu
                         lưu
                       </p>
                     </div>
-                    <div className="absolute bottom-20 left-20 flex items-center">
+                    <div className="absolute bottom-24 left-20 flex items-center">
                       <Search size={24} className="absolute left-2 text-gray-500" />
 
                       <input
                         type="text"
                         placeholder="Search..."
-                        className="rounded-2xl border border-gray-300 px-9 py-4"
+                        className="rounded-3xl border border-gray-300 px-12 py-3 focus:outline-none"
                         style={{ width: '700px' }}
                       />
-                      <button className="absolute right-4 top-2 rounded-xl bg-blue-500 px-4 py-2 text-white">
-                        Khám phá
+                      <button className="absolute right-0 top-0 h-full rounded-r-3xl bg-blue-600 px-6 text-base text-lg font-semibold text-white">
+                        <Link to={'/venues'}>Khám phá</Link>
                       </button>
                     </div>
                   </div>

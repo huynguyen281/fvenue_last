@@ -110,16 +110,16 @@ function VenueDetailPage() {
         <Header />
       </div>
 
-      <div className="mx-auto min-h-screen w-full bg-gray-200">
+      <div className="mx-auto min-h-screen w-full bg-gray-200 pt-6">
         <div className="mx-auto min-h-[342px] max-w-6xl rounded-md bg-white px-2 shadow-md sm:px-4 lg:px-6">
           <div className="mx-auto max-w-2xl py-1 sm:py-2 lg:max-w-none lg:py-4">
             {venue && (
               <section className="flex w-full place-items-start gap-6 py-2">
-                <article className="max-h-[300px] max-w-[300px]">
+                <article className="max-h-[300px]">
                   <img
                     src={venue.Image}
                     alt={venue.Name}
-                    className="aspect-square w-full rounded-md border border-gray-100 object-cover shadow-md"
+                    className="aspect-[4 / 3] max-h-[300px] w-full rounded-md border border-gray-100 object-cover shadow-md"
                   />
                 </article>
 
@@ -161,8 +161,17 @@ function VenueDetailPage() {
                         <p className="mr-4 pr-2">Giờ đóng cửa: {venue.CloseTime}</p>
                       </div>
                     </div>
-                    <div>
-                      {localStorage.getItem('user') ? <Popupmenu venueId={venue.Id} venueName={venue.Name} /> : ''}
+                    <div className={venue.IsHaveTicket ? 'block' : 'hidden'}>
+                      {localStorage.getItem('user') ? (
+                        <Popupmenu venueId={venue.Id} venueName={venue.Name} />
+                      ) : (
+                        <span className="pl-2 font-semibold">
+                          <a href="/login" className="font-bold text-amber-600">
+                            Đăng nhập ngay
+                          </a>{' '}
+                          để tiến hành đặt vé!!
+                        </span>
+                      )}
                     </div>
                   </div>
                 </article>

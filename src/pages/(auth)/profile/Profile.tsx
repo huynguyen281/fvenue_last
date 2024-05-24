@@ -11,7 +11,8 @@ import { AxiosError } from 'axios'
 import { IResponse } from '../../../types'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import HomeButtton from 'src/components/ui/homebutton'
+import Header from 'src/components/header'
+import Footer from 'src/components/footer'
 
 function Profile() {
   const currentUser = JSON.parse(localStorage.getItem('user') ?? '') as User
@@ -24,11 +25,9 @@ function Profile() {
   const { method } = useParams<{ method?: string }>()
   return (
     <>
-      <div className="ml-10 mt-10">
-        <HomeButtton />
-      </div>
+      <Header />
 
-      <div className="flex h-screen flex-col">
+      <div className="flex flex-col">
         <div className="h-56 w-full bg-white">
           <UserAvatar avatar={user?.Image ?? ''} userName={user?.FullName ?? 'User Name'} email={user?.Email ?? ''} />
         </div>
@@ -111,6 +110,8 @@ function Profile() {
           </TabsContent>
         </Tabs>
       </div>
+
+      <Footer />
     </>
   )
 }

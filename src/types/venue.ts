@@ -12,6 +12,7 @@ export interface IVenue {
   LowerPrice: number
   UpperPrice: number
   Description: string
+  IsHaveTicket: boolean
   Reviews?: IReviewResponseInsert[]
 }
 

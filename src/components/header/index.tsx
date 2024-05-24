@@ -5,8 +5,8 @@ import Help from './help'
 
 export function Header() {
   return (
-    <div className="h-[5rem]  bg-gray-200 md:px-12">
-      <div className="mx-auto ml-10 flex h-full items-center justify-between bg-gray-200">
+    <div className="h-[5rem] bg-gray-100 md:px-12">
+      <div className="mx-auto ml-10 flex h-full items-center justify-between bg-transparent">
         <Link to={'/'} className=" text-4xl font-extrabold text-blue-700">
           FVenue
         </Link>

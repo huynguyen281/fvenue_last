@@ -34,7 +34,6 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
   })
   const { isLoading: isSubCategoryLoading, data: subcategories } = useGetAllSubCategory()
 
-  console.log('Subcategories', subcategories)
   const subcategoriesCombobox = useMemo(() => {
     if (!subcategories) return []
     else
@@ -48,7 +47,6 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
   const [isLocationAllowed, setIsLocationAllowed] = useState(false)
 
   useEffect(() => {
-    // Lấy vị trí người dùng khi trang được tải lần đầu tiên
     if ('geolocation' in navigator) {
       setIsLocationAllowed(true)
     } else {
@@ -63,7 +61,6 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
           const { latitude, longitude } = position.coords
           const GeoLocation = `${latitude},${longitude}`
           setValue('GeoLocation', GeoLocation)
-          handleSubmit(onSubmit)()
         },
         (error) => {
           console.error('Error getting geolocation:', error)
@@ -74,30 +71,26 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
     }
   }
 
-  const onSubmit = React.useCallback(
-    (data: FilterForm) => {
-      const { GeoLocation, Radius, LowerPrice, UpperPrice, SubCategoryIds } = data
-      const searchParams = new URLSearchParams()
-      GeoLocation && searchParams.set('GeoLocation', GeoLocation)
-      Radius && searchParams.set('Radius', Radius)
+  const onSubmit = React.useCallback((data: FilterForm) => {
+    const { GeoLocation, Radius, LowerPrice, UpperPrice, SubCategoryIds } = data
+    const searchParams = new URLSearchParams()
+    GeoLocation && searchParams.set('GeoLocation', GeoLocation)
+    Radius && searchParams.set('Radius', Radius)
 
-      // Xử lý SubCategoryIds như một mảng và thêm vào URLSearchParams nếu có giá trị
-      if (SubCategoryIds) {
-        const subCategoryIdsArray = SubCategoryIds.split(',') // Chuyển chuỗi thành mảng
-        searchParams.set('SubCategoryIds', subCategoryIdsArray.join(',')) // Thêm mảng vào URLSearchParams
-      }
+    if (SubCategoryIds) {
+      const subCategoryIdsArray = SubCategoryIds.split(',')
+      searchParams.set('SubCategoryIds', subCategoryIdsArray.join(','))
+    }
 
-      LowerPrice && searchParams.set('LowerPrice', LowerPrice)
-      UpperPrice && searchParams.set('UpperPrice', UpperPrice)
+    LowerPrice && searchParams.set('LowerPrice', LowerPrice)
+    UpperPrice && searchParams.set('UpperPrice', UpperPrice)
 
-      setSearchParams(searchParams, { replace: true })
+    setSearchParams(searchParams, { replace: true })
 
-      if (onFilterChange) {
-        onFilterChange(data)
-      }
-    },
-    [onFilterChange, setSearchParams],
-  )
+    if (onFilterChange && data.GeoLocation && data.GeoLocation != '') {
+      onFilterChange(data)
+    }
+  }, [])
   const [clearFlag, setClearFlag] = useState(false)
   const onClear = React.useCallback(() => {
     reset()
@@ -106,30 +99,15 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
 
   return (
     <React.Fragment key={'sidebar.filter'}>
-      {totalVenues && <p className="text-sm text-slate-500">{totalVenues} venues found</p>}
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        <div>
-          <span className="my-2 flex flex-row items-center py-3">
-            <p className="pl-2 text-lg font-extrabold">Tìm kiếm địa điểm </p>
+      {totalVenues && <p className="border-2 text-sm">{totalVenues} venues found</p>}
+      <form onSubmit={handleSubmit(onSubmit)} className="pb-4">
+        <div className="flex flex-col gap-4">
+          <span className="flex flex-row items-center">
+            <p className="text-lg font-extrabold">Tìm kiếm địa điểm </p>
           </span>
           <Separator />
           <div>
             <Label htmlFor="category">Thể loại</Label>
-            {/* <SearchSubCategory
-              isLoading={isSubCategoryLoading}
-              data={subcategoriesCombobox}
-              onSelection={(selectedSubCategoryId) => {
-                // Tìm Id của SubCategory dựa trên Name được chọn
-                const selectedSubCategory = subcategoriesCombobox.find(
-                  (subcategory) => subcategory.label === selectedSubCategoryId,
-                )
-                if (selectedSubCategory) {
-                  // Nếu tìm thấy Id, gửi Id đó
-                  setValue('SubCategoryIds', [selectedSubCategory.value])
-                }
-              }}
-              clear={clearFlag}
-            /> */}
             <MultiSelect
               options={subcategoriesCombobox}
               selected={selected}
@@ -170,14 +148,8 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
               className="bg-card"
             />
           </div>
-          {/* Hiển thị thông báo khi người dùng click */}
-          {/* {isLocationAllowed && (
-            <div>
-              <Button onClick={getLocation}>Chia sẻ vị trí của bạn và tìm ngay</Button>
-            </div>
-          )} */}
           <Separator />
-          <div className="ml-5 mt-3 flex justify-between">
+          <div className="flex justify-between">
             {/* <Button type="submit">Tìm ngay</Button>
             <Button variant={'ghost'} type="button" className="">
               xoá

@@ -59,7 +59,6 @@ function SuggestionStep() {
       setSelectedSubCategory(newArrayValue)
     } else {
       const filteredArray = selectedSubCategory?.filter((item) => item.value !== newValue.value)
-      console.log(filteredArray)
       setSelectedSubCategory(filteredArray)
     }
   }

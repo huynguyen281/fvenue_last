@@ -7,7 +7,7 @@ function LandingPage() {
   return (
     <LandingLayout>
       <>
-        <div className="space-y-8 bg-gray-100">
+        <div className="space-y-8 bg-gray-100 pb-8">
           <CarouselLD />
 
           <PublicVenue />

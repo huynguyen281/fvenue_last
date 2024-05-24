@@ -32,3 +32,11 @@ export interface ScheduleDetailResponse {
   Message: string
   Data: Array<Schedule>
 }
+
+export interface ScheduleSuggestionRequest {
+  AccountId: number
+  GeoLocation: string
+  Type: number
+  SubCategoryIds: Array<number>
+  Price: number | null
+}

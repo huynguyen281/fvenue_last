@@ -13,7 +13,12 @@ function ScheduleDetail() {
   const [scheduleDetail, setScheduleDetail] = React.useState<Schedule>()
 
   React.useEffect(() => {
-    fetchScheduleDetail()
+    if (scheduleId == '0') {
+      if (!localStorage.getItem('suggestion_query')) window.open('/')
+      fetchScheduleSuggestion()
+    } else {
+      fetchScheduleDetail()
+    }
   }, [])
 
   const fetchScheduleDetail = () => {
@@ -32,6 +37,38 @@ function ScheduleDetail() {
           if (scheduleDetail) {
             scheduleDetail.Venues.reverse
           }
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+  const fetchScheduleSuggestion = () => {
+    const token = `Bearer ${localStorage.getItem('token')}`
+    axiosClient
+      .post(`SchedulesAPI/SuggestSchedule`, JSON.parse(localStorage.getItem('suggestion_query') ?? ''), {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        if (response.data.Code == 200) {
+          const newData = {
+            Id: 0,
+            Name: 'string',
+            Description: 'string',
+            CreateDate: 'string',
+            LastUpdateDate: 'string',
+            TimeInDay: 'string',
+            ThumbnailUrl: 'string',
+            Type: 1,
+            VenueCount: 1,
+            NumberOfVenue: 1,
+            MediumPrice: 1,
+            Venues: response.data.Data.SuggestVenueDTOs as Schedule,
+          } as unknown as Schedule
+          if (typeof newData != 'undefined') setScheduleDetail(newData)
         }
       })
       .catch((error) => {

@@ -128,7 +128,6 @@ export default function Popupmenu({ venueId, venueName }: { venueId: string; ven
       Content: ticketChosen.join('#'),
       Locale: 'vn',
     } as IPaymentQuery
-    console.log(dataQuery)
     axiosClient
       .post(`PaymentsAPI/PaymentTransaction`, dataQuery, {
         headers: {

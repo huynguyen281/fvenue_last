@@ -11,6 +11,7 @@ import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
 import { axiosClient } from 'src/lib/axios'
+import { ScheduleSuggestionRequest } from 'src/types/schedule'
 
 const steps = ['Chọn thời gian', 'Chọn giá tiền mong muốn', 'Chọn sở thích', 'Kết quả']
 
@@ -23,6 +24,14 @@ function SuggestionStep() {
     { name: 'Tối', value: 3 },
   ])
   const [selectedSubCategory, setSelectedSubCategory] = React.useState<Array<SelectData>>([])
+  const [queryGetSuggestion] = React.useState<ScheduleSuggestionRequest>({
+    AccountId: 1,
+    GeoLocation: '',
+    Type: 0,
+    SubCategoryIds: [],
+    Price: null,
+  } as ScheduleSuggestionRequest)
+  const [localStatus, setLocalStatus] = React.useState<number>(0)
 
   React.useEffect(() => {
     // setActiveStep(0)
@@ -70,16 +79,54 @@ function SuggestionStep() {
   }
 
   const handleNext = () => {
-    if (activeStep < steps.length - 1) setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    if (activeStep > 3) return
+    switch (activeStep) {
+      case 0:
+        if (queryGetSuggestion.Type == 0) return
+        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+        break
+      case 1:
+        if (!queryGetSuggestion.Price) return
+        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+        break
+      case 2:
+        if (selectedSubCategory.length < 1) return
+        queryGetSuggestion.SubCategoryIds = selectedSubCategory.map((item) => +item.value)
+        setActiveStep((prevActiveStep) => prevActiveStep + 1)
+        break
+      default:
+        localStorage.setItem('suggestion_query', JSON.stringify(queryGetSuggestion))
+        window.open('/schedule/detail/0')
+    }
     return
   }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
+
+  async function locate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude
+          const longitude = position.coords.longitude
+          queryGetSuggestion.GeoLocation = `${latitude},${longitude}`
+          setLocalStatus(1)
+        },
+        (error) => {
+          console.error('Lỗi khi lấy vị trí:', error)
+          setLocalStatus(-1)
+        },
+      )
+    } else {
+      setLocalStatus(0)
+    }
+  }
+
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-200">
-      <div className="w-2/3 rounded-xl bg-white shadow-xl">
+    <div className="flex h-screen w-screen items-center justify-center bg-gray-300/80">
+      <div className="w-[60%] rounded-xl bg-white shadow-xl backdrop-blur-2xl">
         <div className="w-ful p-16">
           <Box sx={{ width: '100%' }}>
             <Stepper activeStep={activeStep}>
@@ -105,7 +152,7 @@ function SuggestionStep() {
                       data={timeData ?? []}
                       disabled={activeStep != 0}
                       onSelection={(value) => {
-                        console.log(value)
+                        queryGetSuggestion.Type = value as number
                       }}
                     ></SelectBox>
                   </div>
@@ -115,8 +162,12 @@ function SuggestionStep() {
                       disabled={activeStep != 1}
                       className="w-full"
                       id="outlined-basic"
-                      label="Giá tiền"
+                      label="Giá tiền (VND)"
                       variant="outlined"
+                      value={queryGetSuggestion.Price}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        if (!isNaN(Number(event.target.value))) queryGetSuggestion.Price = +event.target.value
+                      }}
                     />
                   </div>
                   <div className={activeStep >= 2 ? 'block' : 'hidden'}>
@@ -152,13 +203,57 @@ function SuggestionStep() {
                       </div>
                     </FormGroup>
                   </div>
+                  <div className={activeStep >= 3 ? 'block w-full' : 'hidden'}>
+                    {localStatus == 0 && (
+                      <div className="text-md !mt-2 flex flex-col gap-3 rounded-md">
+                        <div className="font-semibold text-blue-500">
+                          Để hoàn tất quá trình, bạn cần cho phép chúng tôi quyền truy cập vị trí thiết bị của bạn.
+                        </div>
+                        <span
+                          onClick={() => {
+                            locate().then(() => {
+                              if (queryGetSuggestion.GeoLocation != '') console.log(queryGetSuggestion)
+                            })
+                          }}
+                          className="cursor-pointer rounded-md bg-blue-500 px-2 py-1 text-center text-white hover:shadow-lg"
+                        >
+                          Thử lại
+                        </span>
+                      </div>
+                    )}
+                    {localStatus == 1 && (
+                      <div className="text-md !mt-2 flex flex-col gap-3 rounded-md">
+                        <div className="font-semibold text-green-500">
+                          Quá trình đã hoàn tất, nhấn vào xem kết quả để xem chi tiết lịch trình !
+                        </div>
+                      </div>
+                    )}
+                    {localStatus == -1 && (
+                      <div className="text-md !mt-2 flex flex-col gap-3 rounded-md">
+                        <div className="font-semibold text-red-500">Lấy vị trí thất bại.</div>
+                        <span
+                          onClick={() => {
+                            locate().then(() => {
+                              if (queryGetSuggestion.GeoLocation != '') console.log(queryGetSuggestion)
+                            })
+                          }}
+                          className="cursor-pointer rounded-md bg-blue-500 px-2 py-1 text-center text-white hover:shadow-lg"
+                        >
+                          Thử lại
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <Box sx={{ display: 'flex', flexDirection: 'row', pt: 1 }}>
                   <Button color="inherit" disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>
                     <p className="capitalize">Trở về</p>
                   </Button>
                   <Box sx={{ flex: '1 1 auto' }} />
-                  <Button onClick={handleNext}>
+                  <Button
+                    disabled={activeStep === steps.length - 1 && queryGetSuggestion.GeoLocation == ''}
+                    onClick={handleNext}
+                  >
                     <p className="capitalize">{activeStep === steps.length - 1 ? 'Xem kết quả' : 'Tiếp'}</p>
                   </Button>
                 </Box>

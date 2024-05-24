@@ -124,21 +124,6 @@ export default function Schedules() {
       })
   }
 
-  function getCoords() {
-    if (navigator.geolocation) {
-      navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
-        if (result.state === 'granted') {
-          navigator.geolocation.getCurrentPosition((pos) => {
-            const { latitude, longitude } = pos.coords
-            setGeolocation(`${latitude},${longitude}`)
-          })
-        }
-      })
-    } else {
-      alert('Sorry Not available!')
-    }
-  }
-
   const fetchScheduleData = () => {
     let apiURL = ''
     let queryString = {}

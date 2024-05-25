@@ -2,6 +2,8 @@ import { IVenue } from './venue'
 
 export interface Schedule {
   Id: number
+  AccountId: number
+  AccountName: string
   Name: string
   Description: string
   CreateDate: string
@@ -12,6 +14,7 @@ export interface Schedule {
   VenueCount: number
   NumberOfVenue: number
   MediumPrice: number
+  VenueIds: Array<string> | []
   Venues: Array<IVenue> | []
 }
 
@@ -39,4 +42,10 @@ export interface ScheduleSuggestionRequest {
   Type: number
   SubCategoryIds: Array<number>
   Price: number | null
+}
+
+export interface ScheduleSuggestionResponse {
+  Code: number
+  Message: string
+  Data: Schedule
 }

@@ -17,6 +17,7 @@ import { ListSchedule } from 'src/components/schedule/list-schedule'
 import { Schedule, ScheduleRequest, ScheduleResponse } from 'src/types/schedule'
 import { SelectBox } from 'src/components/select-box'
 import { User } from 'src/types/user'
+import { BookmarkAdd } from '@mui/icons-material'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -127,6 +128,7 @@ export default function Schedules() {
   const fetchScheduleData = () => {
     let apiURL = ''
     let queryString = {}
+    const token = `Bearer ${localStorage.getItem('token')}`
     switch (tab) {
       case 0: // Khám phá lịch trình
         apiURL = 'SchedulesAPI/GetVenueScheduleByFilter'
@@ -135,10 +137,24 @@ export default function Schedules() {
           type: scheduleRequest.type == 0 ? null : scheduleRequest.type,
           subCategoryIds: scheduleRequest.subCategoryIds,
         }
+        axiosClient
+          .post<ScheduleResponse>(apiURL, queryString, {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+            },
+          })
+          .then((response) => {
+            if (response.status === 200 && response.data) {
+              setSchedulesData(response.data.Data)
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
         break
-      case 1: // Lịch trình gợi ý
-        // getCoords()
-        apiURL = 'SchedulesAPI/SuggestSchedule'
+      case 1: // Lịch trình của tôi
+        apiURL = `SchedulesAPI/GetUserSchedules/${currentUser.Id}`
         queryString = {
           AccountId: currentUser.Id,
           GeoLocation: geolocation,
@@ -146,34 +162,25 @@ export default function Schedules() {
           SubCategoryIds: scheduleRequest.subCategoryIds,
           Price: 100000,
         }
-        return
-      case 2: // Lịch trình của tôi
-        apiURL = 'SchedulesAPI/GetVenueSchedule/a'
-        queryString = {
-          districtId: scheduleRequest.districtId == 0 ? null : scheduleRequest.districtId,
-          type: scheduleRequest.type == 0 ? null : scheduleRequest.type,
-          subCategoryIds: scheduleRequest.subCategoryIds,
-        }
-        return
+        axiosClient
+          .get<ScheduleResponse>(apiURL, {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+            },
+          })
+          .then((response) => {
+            if (response.status === 200 && response.data) {
+              setSchedulesData(response.data.Data)
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+        break
       default:
         break
     }
-    const token = `Bearer ${localStorage.getItem('token')}`
-    axiosClient
-      .post<ScheduleResponse>(apiURL, queryString, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: token,
-        },
-      })
-      .then((response) => {
-        if (response.status === 200 && response.data) {
-          setSchedulesData(response.data.Data)
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      })
   }
 
   const handleChangeCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -188,78 +195,87 @@ export default function Schedules() {
     fetchScheduleData()
   }
 
+  const redirectCreateSchedule = () => {
+    window.open('/schedule/create')
+  }
+
   return (
-    <>
-      <Header></Header>
-      <div className="flex w-full items-center justify-center py-8">
-        <div className="flex w-[1100px] gap-4">
-          <div className="h-fit w-[25%] space-y-6 rounded-lg border p-3">
-            <div className="space-y-2">
-              <span className="text-sm font-bold uppercase text-blue-900">Địa điểm khám phá</span>
-              <div>
-                <SelectBox
-                  label="Quận"
-                  data={districtData ?? []}
-                  disabled={tab === 1}
-                  onSelection={(value) => {
-                    scheduleRequest.districtId = value as number
-                    console.log(scheduleRequest)
-                    fetchScheduleData()
-                  }}
-                ></SelectBox>
+    <div className="relative h-screen">
+      <div>
+        <Header></Header>
+        <div className="flex w-full items-center justify-center py-8">
+          <div className="flex w-[1100px] gap-4">
+            <div className="h-fit w-[25%] space-y-6 rounded-lg border p-3">
+              <div className="space-y-2">
+                <span className="text-sm font-bold uppercase text-blue-900">Địa điểm khám phá</span>
+                <div>
+                  <SelectBox
+                    label="Quận"
+                    data={districtData ?? []}
+                    disabled={tab === 1}
+                    onSelection={(value) => {
+                      scheduleRequest.districtId = value as number
+                      console.log(scheduleRequest)
+                      fetchScheduleData()
+                    }}
+                  ></SelectBox>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <span className="text-sm font-bold uppercase text-blue-900">Thời gian</span>
+                <div>
+                  <SelectBox
+                    label="Buổi"
+                    data={timeData ?? []}
+                    disabled={false}
+                    onSelection={(value) => {
+                      scheduleRequest.type = value as number
+                      console.log(scheduleRequest)
+                      fetchScheduleData()
+                    }}
+                  ></SelectBox>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <span className="text-sm font-bold uppercase text-blue-900">Sở thích</span>
+                <div className="max-h-[300px] overflow-auto">
+                  <FormGroup>
+                    {venueCateData?.map((item) => (
+                      <FormControlLabel
+                        key={item.value}
+                        control={<Checkbox value={item.value} onChange={handleChangeCheckbox} color="default" />}
+                        label={item.name}
+                      />
+                    ))}
+                  </FormGroup>
+                </div>
               </div>
             </div>
-            <div className="space-y-2">
-              <span className="text-sm font-bold uppercase text-blue-900">Thời gian</span>
-              <div>
-                <SelectBox
-                  label="Buổi"
-                  data={timeData ?? []}
-                  disabled={false}
-                  onSelection={(value) => {
-                    scheduleRequest.type = value as number
-                    console.log(scheduleRequest)
-                    fetchScheduleData()
-                  }}
-                ></SelectBox>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <span className="text-sm font-bold uppercase text-blue-900">Sở thích</span>
-              <div className="max-h-[300px] overflow-auto">
-                <FormGroup>
-                  {venueCateData?.map((item) => (
-                    <FormControlLabel
-                      key={item.value}
-                      control={<Checkbox value={item.value} onChange={handleChangeCheckbox} color="default" />}
-                      label={item.name}
-                    />
-                  ))}
-                </FormGroup>
-              </div>
-            </div>
-          </div>
-          <Box sx={{ width: '100%' }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <Tabs value={tab} onChange={handleChangeTab} aria-label="basic tabs example">
-                <Tab label="Khám phá" {...a11yProps(0)} />
-                <Tab label="Gợi ý chuyên gia" {...a11yProps(1)} />
-                <Tab label="Lịch trình của tôi" {...a11yProps(2)} />
-              </Tabs>
+            <Box sx={{ width: '100%' }}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Tabs value={tab} onChange={handleChangeTab} aria-label="basic tabs example">
+                  <Tab label="Khám phá" {...a11yProps(0)} />
+                  <Tab label="Lịch trình của tôi" {...a11yProps(1)} />
+                </Tabs>
+              </Box>
+              <CustomTabPanel value={tab} index={0}>
+                <ListSchedule schedulesData={schedulesData ?? []}></ListSchedule>
+              </CustomTabPanel>
+              <CustomTabPanel value={tab} index={1}>
+                <ListSchedule schedulesData={schedulesData ?? []}></ListSchedule>
+              </CustomTabPanel>
             </Box>
-            <CustomTabPanel value={tab} index={0}>
-              <ListSchedule schedulesData={schedulesData ?? []}></ListSchedule>
-            </CustomTabPanel>
-            <CustomTabPanel value={tab} index={1}>
-              {/* <ListSchedule isPersonal></ListSchedule> */}
-            </CustomTabPanel>
-            <CustomTabPanel value={tab} index={2}>
-              {/* <ListSchedule isPersonal></ListSchedule> */}
-            </CustomTabPanel>
-          </Box>
+          </div>
         </div>
+        <Footer></Footer>
       </div>
-      <Footer></Footer>
-    </>
+      <div
+        onClick={() => redirectCreateSchedule()}
+        title="Tạo lịch trình"
+        className="fixed bottom-[80px] right-[80px] z-50 flex h-14 w-14 animate-bounce cursor-pointer items-center justify-center rounded-full bg-orange-500/80 shadow-lg shadow-orange-300 outline outline-orange-200 duration-1000"
+      >
+        <BookmarkAdd fontSize="large" sx={{ color: '#fff' }} />
+      </div>
+    </div>
   )
 }

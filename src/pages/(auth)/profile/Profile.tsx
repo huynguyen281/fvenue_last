@@ -5,6 +5,7 @@ import { Label } from 'src/components/ui/label'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'src/components/ui/tabs'
 import UserAvatar from '../../../components/auth/user-avatar'
 import UserTransaction from '../../../components/auth/user-transaction'
+import UserTickets from '../../../components/auth/user-tickets'
 import { User } from 'src/types/user'
 import { getUserApi } from 'src/api/user/get-user'
 import { AxiosError } from 'axios'
@@ -31,9 +32,9 @@ function Profile() {
         <div className="h-56 w-full bg-white">
           <UserAvatar avatar={user?.Image ?? ''} userName={user?.FullName ?? 'User Name'} email={user?.Email ?? ''} />
         </div>
-        <Tabs defaultValue={method == 'transaction' ? 'transaction' : 'account'} className="w-full grow bg-gray-100">
+        <Tabs defaultValue={method ?? 'account'} className="w-full grow bg-gray-100">
           <div className="flex w-full items-center justify-center bg-white py-3">
-            <TabsList className="grid w-3/5 grid-cols-3 bg-white">
+            <TabsList className="grid w-3/5 grid-cols-4 bg-white">
               <TabsTrigger value="account" className="text-lg">
                 Tài khoản
               </TabsTrigger>
@@ -42,6 +43,9 @@ function Profile() {
               </TabsTrigger>
               <TabsTrigger value="transaction" className="text-lg">
                 Giao dịch
+              </TabsTrigger>
+              <TabsTrigger value="tickets" className="text-lg">
+                Vé của tôi
               </TabsTrigger>
             </TabsList>
           </div>
@@ -107,6 +111,9 @@ function Profile() {
           </TabsContent>
           <TabsContent value="transaction" className="mt-0 flex justify-center bg-gray-100">
             <UserTransaction userId={currentUser.Id ?? ''} userRole={user?.RoleName ?? ''}></UserTransaction>
+          </TabsContent>
+          <TabsContent value="tickets" className="mt-0 flex justify-center bg-gray-100">
+            <UserTickets userId={currentUser.Id ?? ''}></UserTickets>
           </TabsContent>
         </Tabs>
       </div>

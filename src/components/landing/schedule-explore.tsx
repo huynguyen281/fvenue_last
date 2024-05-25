@@ -4,7 +4,7 @@ import { DoubleArrow } from '@mui/icons-material'
 
 function ScheduleExplore() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white pt-10">
       <div className="mx-auto flex h-[700px] w-full items-center bg-gradient-to-b from-white to-orange-400/50">
         <div className="mx-auto flex h-[550px] max-w-7xl items-center bg-transparent px-4 sm:px-6 lg:px-8">
           <div className="flex aspect-[4/3] h-full items-center pr-[100px]">

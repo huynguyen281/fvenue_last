@@ -16,6 +16,23 @@ export interface User {
   salt?: string
 }
 
+export interface UserTicket {
+  Id: number
+  SerialNumber: string
+  ItemId: number
+  ExpiryDate: string
+  Status: number
+  TicketImage: string
+  VenueId: number
+  ItemName: string
+}
+
+export interface UserTicketResponse {
+  Code: number
+  Message: string
+  Data: Array<UserTicket>
+}
+
 export enum ROLE {
   MANAGER = 'MANAGER',
   CUSTOMER = 'USER',

@@ -216,7 +216,7 @@ function SuggestionStep() {
                           }}
                           className="cursor-pointer rounded-md bg-blue-500 px-2 py-1 text-center text-white hover:shadow-lg"
                         >
-                          Thử lại
+                          Cho phép
                         </span>
                       </div>
                     )}

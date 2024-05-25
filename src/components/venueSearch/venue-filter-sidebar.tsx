@@ -123,7 +123,7 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
           </div>
 
           <div>
-            <Label htmlFor="search">Bán kính</Label>
+            <Label htmlFor="search">Bán kính (km)</Label>
             <Input
               placeholder="nhập bán kính địa điểm"
               id="Radius"
@@ -132,7 +132,7 @@ function VenueFilterSideBar({ onFilterChange, totalVenues }: Props) {
             />
           </div>
           <div>
-            <Label htmlFor="price">Giá</Label>
+            <Label htmlFor="price">Giá (VND)</Label>
             <div className="-center flex flex-row">
               <Input placeholder="From" id="LowerPrice" {...control.register('LowerPrice')} className="bg-card" />
               <p className="p-2">-</p>

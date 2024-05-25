@@ -20,8 +20,8 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[30rem] w-[100%] object-cover"
-                  src={`https://th.bing.com/th/id/R.bc9c9bbf4c186267f814644a84526eea?rik=es%2bqJomACNGYUQ&pid=ImgRaw&r=0`}
+                  className="aspect-[3] w-[100%] object-cover"
+                  src={`https://vcdn1-dulich.vnecdn.net/2024/04/02/Copy-of-DIFF-2024-hua-hen-tiep-9303-9824-1712064776.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=qstGIXDbr49i3vm9inaUiQ`}
                   alt={`carousel-image-${index}`}
                 />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
@@ -53,7 +53,7 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[30rem] w-[100%] object-cover"
+                  className="aspect-[3] w-[100%] object-cover"
                   src={`https://d36tnp772eyphs.cloudfront.net/blogs/1/2018/08/Dragon-Bridge-in-Da-Nang-City-Vietnam.jpg`}
                   alt={`carousel-image-${index}`}
                 />
@@ -87,8 +87,8 @@ function CarouselLD() {
             <CarouselItem>
               <div className="relative w-full">
                 <img
-                  className="h-[30rem] w-[100%] object-cover"
-                  src={`https://res.klook.com/image/upload/fl_lossy.progressive,q_90/c_fill,,w_2560,/v1670577664/banner/rtw7fgqatgoc1vpcpamb.webp`}
+                  className="aspect-[3] w-[100%] object-cover"
+                  src={`https://th.bing.com/th/id/R.bc9c9bbf4c186267f814644a84526eea?rik=es%2bqJomACNGYUQ&pid=ImgRaw&r=0`}
                   alt={`carousel-image-${index}`}
                 />
                 <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">

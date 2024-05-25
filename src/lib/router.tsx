@@ -14,6 +14,7 @@ const Venues = React.lazy(() => import('src/pages/venue/Venues'))
 const Geolocation = React.lazy(() => import('src/pages/venue/Geolocation'))
 const ScheduleDetail = React.lazy(() => import('src/pages/schedule/detail'))
 const Schedules = React.lazy(() => import('src/pages/schedule/index'))
+const ScheduleCreate = React.lazy(() => import('src/pages/schedule/create'))
 const SuggestionStep = React.lazy(() => import('src/pages/schedule/suggestion-step'))
 
 export const ROUTES = createBrowserRouter([
@@ -61,6 +62,10 @@ export const ROUTES = createBrowserRouter([
   {
     path: '/schedule/suggestion-step',
     element: <SuggestionStep />,
+  },
+  {
+    path: '/schedule/create',
+    element: <ScheduleCreate />,
   },
   {
     path: '/popup',

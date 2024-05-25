@@ -56,6 +56,10 @@ export const ROUTES = createBrowserRouter([
     element: <Schedules />,
   },
   {
+    path: '/schedule/:tab',
+    element: <Schedules />,
+  },
+  {
     path: '/schedule/detail/:id',
     element: <ScheduleDetail />,
   },

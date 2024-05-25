@@ -18,6 +18,7 @@ import { Schedule, ScheduleRequest, ScheduleResponse } from 'src/types/schedule'
 import { SelectBox } from 'src/components/select-box'
 import { User } from 'src/types/user'
 import { BookmarkAdd } from '@mui/icons-material'
+import { useParams } from 'react-router-dom'
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -50,6 +51,7 @@ function a11yProps(index: number) {
 }
 
 export default function Schedules() {
+  const { method } = useParams<{ method?: string }>()
   const currentUser = JSON.parse(localStorage.getItem('user') ?? '') as User
   const [districtData, setDistrictData] = React.useState<Array<SelectData>>()
   const [venueCateData, setVenueCateData] = React.useState<Array<SelectData>>()
@@ -67,7 +69,7 @@ export default function Schedules() {
   const [schedulesData, setSchedulesData] = React.useState<Array<Schedule>>()
   const [geolocation, setGeolocation] = React.useState<string>()
 
-  const [tab, setTab] = React.useState(0)
+  const [tab, setTab] = React.useState(method == 'owner' ? 0 : 1)
   const handleChangeTab = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue)
   }

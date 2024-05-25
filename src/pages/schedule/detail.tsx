@@ -78,27 +78,58 @@ function ScheduleDetail() {
   const handleAddSchedule = () => {
     setBtnLoading(true)
     const token = `Bearer ${localStorage.getItem('token')}`
-    axiosClient
-      .post(
-        `SchedulesAPI/CloneSchedule?scheduleId=${scheduleId}&accountId=${currentUser.Id}`,
-        {},
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: token,
+    if (scheduleId != '0') {
+      axiosClient
+        .post(
+          `SchedulesAPI/CloneSchedule?scheduleId=${scheduleId}&accountId=${currentUser.Id}`,
+          {},
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+            },
           },
-        },
-      )
-      .then((response) => {
-        if (response.data.Code == 200) {
+        )
+        .then((response) => {
+          if (response.data.Code == 200) {
+            setBtnLoading(false)
+            window.open(`/schedule/owner`)
+          }
+        })
+        .catch((error) => {
+          console.log(error)
           setBtnLoading(false)
-          window.open(`/schedule/detail/${response.data.Data}`)
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-        setBtnLoading(false)
-      })
+        })
+    } else {
+      axiosClient
+        .post(
+          `SchedulesAPI/InsertSchedule`,
+          {
+            Name: scheduleDetail?.Name,
+            Description: scheduleDetail?.Description,
+            AccountId: currentUser.Id,
+            Type: scheduleDetail?.Type,
+            IsPublic: true,
+            Status: true,
+            VenueIds: scheduleDetail?.VenueIds,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+            },
+          },
+        )
+        .then((response) => {
+          if (response.data.Code == 200) {
+            window.open(`/schedule`)
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+          setBtnLoading(false)
+        })
+    }
   }
 
   const handleDeleteSchedule = () => {
